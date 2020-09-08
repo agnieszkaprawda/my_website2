@@ -92,10 +92,10 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "NYT Masks"
+      title = "Mask Acceptance"
       subtitle = "Here I will be uploading my work"
       image = "pic01.jpg"
-      url = "blogs/blogs"
+      url = "blogs/blog5"
 
     [[params.tiles.showcase]]
       title = "Startup world"
