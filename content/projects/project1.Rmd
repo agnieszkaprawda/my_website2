@@ -5,10 +5,10 @@ categories:
 date: "2017-10-31T21:28:43-05:00"
 description: ""
 draft: false
-image: project1.jpg
 keywords: ""
 slug: project1
 title: "Omega Group plc- Pay Discrimination" 
+image: project01.jpg
 ---
 
 
