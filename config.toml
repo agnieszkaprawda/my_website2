@@ -92,25 +92,25 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Project1"
+      title = "Omega Group plc- Pay Discrimination"
       subtitle = "Here I will be uploading my work"
       image = "pic01.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]
-      title = "Project 2"
+      title = "General Social Survey (GSS)"
      # subtitle = ""
       image = "pic02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
-      title = "Project 3"
+      title = "Climate change and temperature anomalies"
      # subtitle = ""
       image = "pic03.jpg"
       url = "projects/project3"
 
     [[params.tiles.showcase]]
-      title = "IMDB"
+      title = "IMDB ratings: Differences between directors "
      # subtitle = "Nisl Sed Aliquam"
       image = "pic04.jpg"
       url = "projects/project4"
@@ -136,16 +136,16 @@ disqusShortname = ""
     # To add more blogs just copy and paste the code.
 
   # Section Type Two
-  [params.two]
-    enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris alisquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+ # [params.two]
+  #  enable = true
+   # title = "Massa libero"
+    #subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+    #Mauris alisquet magna magna sed nunc rhoncus pharetra. 
+    #Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
+    #Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
+    #Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+    #buttonText = "Get Started"
+    #url = "blogs"
 
 
   # Contact section

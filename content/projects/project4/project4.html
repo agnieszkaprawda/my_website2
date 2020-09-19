@@ -1,0 +1,105 @@
+---
+title: "IMDB ratings: Differences between directors "
+author: "LBS, MAM, Porject Group 6"
+date: "2020-09-19"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+
+
+<p>Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it.</p>
+<p><img src="/Users/agnieszkaprawda/Documents/R_project_portfolio/my_website2/images/directors.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>You can load the data and examine its structure</p>
+<pre class="r"><code>movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
+glimpse(movies)</code></pre>
+<pre><code>## Rows: 2,961
+## Columns: 11
+## $ title               &lt;chr&gt; &quot;Avatar&quot;, &quot;Titanic&quot;, &quot;Jurassic World&quot;, &quot;The Aveng…
+## $ genre               &lt;chr&gt; &quot;Action&quot;, &quot;Drama&quot;, &quot;Action&quot;, &quot;Action&quot;, &quot;Action&quot;, …
+## $ director            &lt;chr&gt; &quot;James Cameron&quot;, &quot;James Cameron&quot;, &quot;Colin Trevorro…
+## $ year                &lt;dbl&gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015, 2…
+## $ duration            &lt;dbl&gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93, …
+## $ gross               &lt;dbl&gt; 7.61e+08, 6.59e+08, 6.52e+08, 6.23e+08, 5.33e+08,…
+## $ budget              &lt;dbl&gt; 2.37e+08, 2.00e+08, 1.50e+08, 2.20e+08, 1.85e+08,…
+## $ cast_facebook_likes &lt;dbl&gt; 4834, 45223, 8458, 87697, 57802, 37723, 13485, 92…
+## $ votes               &lt;dbl&gt; 886204, 793059, 418214, 995415, 1676169, 534658, …
+## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752, 3…
+## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7.2,…</code></pre>
+<pre class="r"><code># Create data frame filtered for the two directors we are interested in, including summary statistics resulting in confidence interval at 95%
+data201&lt;-movies%&gt;%
+  filter(director==&quot;Tim Burton&quot;|director==&quot;Steven Spielberg&quot;)%&gt;%
+  group_by(director)%&gt;%
+  summarise(mean=round(mean(rating),digits=2),
+            sd=sd(rating),
+            se=sd/sqrt(n()),
+            tcrit=qt(0.975,n()-1),
+            lower_95=round(mean-tcrit*se,digits=2),
+            upper_95=round(mean+tcrit*se,digits=2))
+
+#Plot the data 
+  
+ggplot(data201,aes(x=reorder(director,mean),y=mean,ymin=lower_95,ymax=upper_95,colour=director))+
+  geom_point(size=6,show.legend=FALSE)+
+  geom_errorbar(show.legend=FALSE,width=.1,size=2.5)+
+  geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=7.27,ymax=7.33),size=0,alpha=0.1,show.legend=FALSE)+
+  coord_flip()+
+  labs(title=&quot;Do Spielberg and Burton have the same mean IMDB ratings?&quot;,
+       subtitle=&quot;95% confidence intervals overlap&quot;,
+       x=&quot;&quot;,
+       y=&quot;Mean IMDB Rating&quot;)+
+  theme(plot.title=element_text(face=&quot;bold&quot;,size=30),
+        plot.subtitle=element_text(size=16))+
+  theme_bw()+
+  geom_text(aes(label=mean,y=mean),show.legend=FALSE,vjust=-1,size=10,face=&quot;bold&quot;,color=&quot;black&quot;)+
+  geom_text(aes(label=lower_95,y=lower_95),show.legend=FALSE,vjust=-2,size=5,face=&quot;bold&quot;,color=&quot;black&quot;)+
+  geom_text(aes(label=upper_95,y=upper_95),show.legend=FALSE,vjust=-2,size=5,face=&quot;bold&quot;,color=&quot;black&quot;)</code></pre>
+<p><img src="/projects/project4/project4_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In addition, we will run a hypothesis test, using both the <code>t.test</code> command and the <code>infer</code> package to simulate from a null distribution, where you assume zero difference between the two. But before that, we would like to calculate by-hand the t-stat as a reference.</p>
+<p>H0: mean_steven=mean_tim, H1: mean_steven!=mean_tim</p>
+<p>Our desired test statistic is the quantity (mean_steven-mean_tim).</p>
+<p>t-stat=(7.57-6.93)/sqrt(0.145<sup>2+0.187</sup>2)=2.7</p>
+<p>(Note 0.145 and 0.187 are approximates of standard errors of Tim Burton and Steven Spielberg’s ratings respectively, taken from data201)</p>
+<pre class="r"><code>#Hypothesis test by `t.test` cmd
+
+data202&lt;-movies%&gt;%
+  filter(director==&quot;Tim Burton&quot;|director==&quot;Steven Spielberg&quot;)
+
+t.test(rating~director,data=data202)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  rating by director
+## t = 3, df = 31, p-value = 0.01
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.16 1.13
+## sample estimates:
+## mean in group Steven Spielberg       mean in group Tim Burton 
+##                           7.57                           6.93</code></pre>
+<pre class="r"><code>#Hypothesis test by `infer` package
+
+ratings_null&lt;-data202%&gt;%
+  specify(rating~director)%&gt;%
+  hypothesize(null=&quot;independence&quot;)%&gt;%
+  generate(reps=1000,type=&quot;permute&quot;)%&gt;%
+  calculate(stat=&quot;diff in means&quot;,order=c(&quot;Steven Spielberg&quot;,&quot;Tim Burton&quot;))
+
+ratings_null%&gt;%
+  visualise+
+  shade_p_value(obs_stat=7.57-6.93,direction=&quot;both&quot;) #7.57-6.93 is the observed difference between the means</code></pre>
+<p><img src="/projects/project4/project4_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ratings_null%&gt;%
+  get_p_value(obs_stat=7.57-6.93,direction=&quot;both&quot;)</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   p_value
+##     &lt;dbl&gt;
+## 1   0.014</code></pre>
+<p>In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
+```</p>
