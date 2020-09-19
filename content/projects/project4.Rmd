@@ -47,7 +47,7 @@ Recall the IMDB ratings data. I would like to explore whether the mean IMDB rati
 
 
 ```{r directors, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "directors.png"), error = FALSE)
+knitr::include_graphics(here::here("projects", "directors.png"), error = FALSE)
 ```
 
 
