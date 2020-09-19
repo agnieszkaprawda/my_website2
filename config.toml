@@ -94,25 +94,25 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Omega Group plc- Pay Discrimination"
       subtitle = "Here I will be uploading my work"
-      image = "pic01.jpg"
+      image = "projects/project01.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]
       title = "General Social Survey (GSS)"
      # subtitle = ""
-      image = "pic02.jpg"
+      image = "projects/proejct02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
       title = "Climate change and temperature anomalies"
      # subtitle = ""
-      image = "pic03.jpg"
+      image = "projects/project03.jpg"
       url = "projects/project3"
 
     [[params.tiles.showcase]]
       title = "IMDB ratings: Differences between directors "
      # subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
+      image = "projects/project04.jpg"
       url = "projects/project4"
 
  #   [[params.tiles.showcase]]
@@ -178,11 +178,11 @@ disqusShortname = ""
     title = "Phone"
     phone = "07762727403"
 
- #   [[params.contact.address]]
-  #  title = "Address"
-   # street = "Soon"
-    #city = "London"
-    #country = "United Kingdom"
+    [[params.contact.address]]
+    title = "Address"
+    street = "Regent's Park, London NW1 4SA"
+    city = "London"
+    country = "United Kingdom"
 
   # Footer section
   [params.footer]
