@@ -5,16 +5,15 @@ categories:
 date: "2017-10-31T21:28:43-05:00"
 description: ""
 draft: false
-image: project04.jpg
 keywords: ""
 slug: project4
 title: "IMDB ratings: Differences between directors "
+image: directors.png
 ---
 
 
 
 <p>Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it.</p>
-<p><img src="/Users/agnieszkaprawda/Documents/R_project_portfolio/my_website2/projects/directors.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>You can load the data and examine its structure</p>
 <pre class="r"><code>movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
 glimpse(movies)</code></pre>
@@ -99,6 +98,6 @@ ratings_null%&gt;%
 <pre><code>## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1   0.008</code></pre>
+## 1   0.016</code></pre>
 <p>In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
 ```</p>

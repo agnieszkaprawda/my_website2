@@ -5,10 +5,10 @@ categories:
 date: "2017-10-31T21:28:43-05:00"
 description: ""
 draft: false
-image: project04.jpg
 keywords: ""
 slug: project4
 title: "IMDB ratings: Differences between directors "
+image: directors.png
 ---
 
 ```{r, setup, include=FALSE}
@@ -44,12 +44,6 @@ library(chron)
 
 
 Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it. 
-
-
-```{r directors, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("projects", "directors.png"), error = FALSE)
-```
-
 
 You can load the data and examine its structure
 
