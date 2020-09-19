@@ -202,7 +202,7 @@ email_gss<-gss %>%
   transform(emailmin= as.numeric(emailmin)) %>% 
   mutate(email=(emailhr*60)+emailmin) %>% 
   arrange(desc(email))
-email_gss
+skim(email_gss)
 
 ```
 
