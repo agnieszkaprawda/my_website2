@@ -1,0 +1,130 @@
+---
+title: "IMDB ratings: Differences between directors "
+author: "LBS, MAM, Porject Group 6"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(infer)
+library(chron)
+```
+
+
+Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it. 
+
+
+```{r directors, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here::here("images", "directors.png"), error = FALSE)
+```
+
+
+You can load the data and examine its structure
+
+```{r load-movies-data}
+movies <- read_csv(here::here("data", "movies.csv"))
+glimpse(movies)
+```
+
+
+```{r fig.height=4, fig.width=7}
+# Create data frame filtered for the two directors we are interested in, including summary statistics resulting in confidence interval at 95%
+data201<-movies%>%
+  filter(director=="Tim Burton"|director=="Steven Spielberg")%>%
+  group_by(director)%>%
+  summarise(mean=round(mean(rating),digits=2),
+            sd=sd(rating),
+            se=sd/sqrt(n()),
+            tcrit=qt(0.975,n()-1),
+            lower_95=round(mean-tcrit*se,digits=2),
+            upper_95=round(mean+tcrit*se,digits=2))
+
+#Plot the data 
+  
+ggplot(data201,aes(x=reorder(director,mean),y=mean,ymin=lower_95,ymax=upper_95,colour=director))+
+  geom_point(size=6,show.legend=FALSE)+
+  geom_errorbar(show.legend=FALSE,width=.1,size=2.5)+
+  geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=7.27,ymax=7.33),size=0,alpha=0.1,show.legend=FALSE)+
+  coord_flip()+
+  labs(title="Do Spielberg and Burton have the same mean IMDB ratings?",
+       subtitle="95% confidence intervals overlap",
+       x="",
+       y="Mean IMDB Rating")+
+  theme(plot.title=element_text(face="bold",size=30),
+        plot.subtitle=element_text(size=16))+
+  theme_bw()+
+  geom_text(aes(label=mean,y=mean),show.legend=FALSE,vjust=-1,size=10,face="bold",color="black")+
+  geom_text(aes(label=lower_95,y=lower_95),show.legend=FALSE,vjust=-2,size=5,face="bold",color="black")+
+  geom_text(aes(label=upper_95,y=upper_95),show.legend=FALSE,vjust=-2,size=5,face="bold",color="black")
+```
+
+In addition, we will run a hypothesis test, using both the `t.test` command and the `infer` package to simulate from a null distribution, where you assume zero difference between the two. But before that, we would like to calculate by-hand the t-stat as a reference.
+
+H0: mean_steven=mean_tim, H1: mean_steven!=mean_tim
+
+Our desired test statistic is the quantity (mean_steven-mean_tim).
+
+t-stat=(7.57-6.93)/sqrt(0.145^2+0.187^2)=2.7
+
+(Note 0.145 and 0.187 are approximates of standard errors of Tim Burton and Steven Spielberg's ratings respectively, taken from data201)
+
+```{r}
+#Hypothesis test by `t.test` cmd
+
+data202<-movies%>%
+  filter(director=="Tim Burton"|director=="Steven Spielberg")
+
+t.test(rating~director,data=data202)
+
+#Hypothesis test by `infer` package
+
+ratings_null<-data202%>%
+  specify(rating~director)%>%
+  hypothesize(null="independence")%>%
+  generate(reps=1000,type="permute")%>%
+  calculate(stat="diff in means",order=c("Steven Spielberg","Tim Burton"))
+
+ratings_null%>%
+  visualise+
+  shade_p_value(obs_stat=7.57-6.93,direction="both") #7.57-6.93 is the observed difference between the means
+
+ratings_null%>%
+  get_p_value(obs_stat=7.57-6.93,direction="both")
+```
+
+In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
+```
