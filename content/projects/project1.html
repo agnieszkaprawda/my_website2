@@ -1,15 +1,14 @@
 ---
-title: "Omega Group plc- Pay Discrimination"
-author: "London Business School, MAM Study Group 6"
-date: "2020-09-19"
-output:
-  html_document:
-    theme: flatly
-    highlight: zenburn
-    number_sections: yes
-    toc: yes
-    toc_float: yes
-    code_folding: show
+categories:
+- ""
+- ""
+date: "2017-10-31T21:28:43-05:00"
+description: ""
+draft: false
+image: pic10.jpg
+keywords: ""
+slug: project1
+title: Omega Group plc- Pay Discrimination
 ---
 
 
@@ -58,7 +57,7 @@ ggplot(omega,aes(x=experience,y=salary, colour= gender,fill=gender)) +
   geom_smooth() +
   labs(title = &quot;Experience is Valued Highly at Omega&quot;, x=&quot;Years of experience&quot;, y= &quot;Salary (in USD)&quot;) +
   theme_bw()</code></pre>
-<p><img src="/projects/project1/project1_files/figure-html/confint_single_valiables-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project1_files/figure-html/confint_single_valiables-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>We can observe a strong relationship between salary and experience. Increase in salary comes quickly at the beginning and throughout the first ~15 years, however the gains in salary become slower later over time, displaying diminishing marginal returns.</p>
 <p>We will further investigate the difference between salaries by gender through hypothesis testing, utilizing both t.test() and the simulation method from the infer package.</p>
 <pre class="r"><code># hypothesis testing using t.test() 
@@ -84,7 +83,7 @@ salary_by_gender&lt;- omega %&gt;%
             order=c(&quot;male&quot;,&quot;female&quot;))
 
 salary_by_gender %&gt;% visualize()+shade_p_value(obs_stat = df_by_gender2[2,2]-df_by_gender2[1,2], direction = &quot;both&quot;)</code></pre>
-<p><img src="/projects/project1/project1_files/figure-html/hypothesis_testing-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project1_files/figure-html/hypothesis_testing-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#now getting p value for conclusion
 
 p_value_by_gender&lt;-salary_by_gender %&gt;% 
@@ -150,7 +149,7 @@ set.seed(1234)
               order = c(&quot;female&quot;, &quot;male&quot;))
   
   experience_in_null %&gt;% visualize() + shade_p_value(obs_stat = exp_gender_ci[2,2]-exp_gender_ci[1,2], direction = &quot;both&quot;)</code></pre>
-<p><img src="/projects/project1/project1_files/figure-html/experience_stats-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project1_files/figure-html/experience_stats-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#now getting p value for conclusion
 
 p_value_exp_gender &lt;- experience_in_null %&gt;% 
@@ -175,7 +174,7 @@ p_value_exp_gender</code></pre>
   labs(title = &quot;We can observe a strong relationship between salary and experience&quot;, x=&quot;Years of experience&quot;, y= &quot;Salary&quot;) +
   theme_bw() +
   scale_y_continuous(labels= scales::dollar)</code></pre>
-<p><img src="/projects/project1/project1_files/figure-html/salary_exp_scatter-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project1_files/figure-html/salary_exp_scatter-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#We can observe a strong relationship between salary and experience. Increase in salary comes quickly at the beginning throughout first ~15 years, however the gains in salary become slower later over time.</code></pre>
 <p>As our analysis above shows, there is a significant positive relationship between years of experience and salary. We can also see what was confirmed in the previous section, that women have significantly less experience than men, with a cut off point displayed above at around 30 years. This gives an alternative reasoning besides discrimination regarding the pay gap, as more years of experience are a valuable asset that is accordingly financially rewarded with a greater salary.</p>
 </div>
@@ -186,7 +185,7 @@ p_value_exp_gender</code></pre>
   select(gender, experience, salary) %&gt;% #order variables they will appear in ggpairs()
   ggpairs(aes(colour=gender, alpha = 0.3))+
   theme_bw()</code></pre>
-<p><img src="/projects/project1/project1_files/figure-html/ggpairs-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project1_files/figure-html/ggpairs-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>From the scatterplot we can see that the majority of women in the sample have a comparable salary to men with the same experience level.</p>
 <p>The majority of women in the sample have experience between 0 and 20 years, whereas the approximate range of experience for most men is between 10 and 35 years. We also saw above that there is a statistically significant difference between the levels of experience for both genders, which confirms what we are seeing. Women seem to end their careers earlier, at least within the given sample.</p>
 </div>

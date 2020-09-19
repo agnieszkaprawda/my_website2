@@ -93,14 +93,14 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "Omega Group plc- Pay Discrimination"
-      subtitle = "Here I will be uploading my work"
+      subtitle = "Do women really eran less than men?"
       image = "projects/project01.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]
       title = "General Social Survey (GSS)"
-     # subtitle = ""
-      image = "projects/proejct02.jpg"
+     # subtitle = "Social media usage across different education levels"
+      image = "projects/project02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
@@ -111,7 +111,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "IMDB ratings: Differences between directors "
-     # subtitle = "Nisl Sed Aliquam"
+     # subtitle = ""
       image = "projects/project04.jpg"
       url = "projects/project4"
 
