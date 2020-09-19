@@ -1,15 +1,14 @@
 ---
+categories:
+- ""
+- ""
+date: "2017-10-31T21:28:43-05:00"
+description: ""
+draft: false
+image: pic10.jpg
+keywords: ""
+slug: project4
 title: "IMDB ratings: Differences between directors "
-author: "LBS, MAM, Porject Group 6"
-date: "2020-09-19"
-output:
-  html_document:
-    theme: flatly
-    highlight: zenburn
-    number_sections: yes
-    toc: yes
-    toc_float: yes
-    code_folding: show
 ---
 
 
@@ -60,7 +59,7 @@ ggplot(data201,aes(x=reorder(director,mean),y=mean,ymin=lower_95,ymax=upper_95,c
   geom_text(aes(label=mean,y=mean),show.legend=FALSE,vjust=-1,size=10,face=&quot;bold&quot;,color=&quot;black&quot;)+
   geom_text(aes(label=lower_95,y=lower_95),show.legend=FALSE,vjust=-2,size=5,face=&quot;bold&quot;,color=&quot;black&quot;)+
   geom_text(aes(label=upper_95,y=upper_95),show.legend=FALSE,vjust=-2,size=5,face=&quot;bold&quot;,color=&quot;black&quot;)</code></pre>
-<p><img src="/projects/project4/project4_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project4_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In addition, we will run a hypothesis test, using both the <code>t.test</code> command and the <code>infer</code> package to simulate from a null distribution, where you assume zero difference between the two. But before that, we would like to calculate by-hand the t-stat as a reference.</p>
 <p>H0: mean_steven=mean_tim, H1: mean_steven!=mean_tim</p>
 <p>Our desired test statistic is the quantity (mean_steven-mean_tim).</p>
@@ -94,12 +93,12 @@ ratings_null&lt;-data202%&gt;%
 ratings_null%&gt;%
   visualise+
   shade_p_value(obs_stat=7.57-6.93,direction=&quot;both&quot;) #7.57-6.93 is the observed difference between the means</code></pre>
-<p><img src="/projects/project4/project4_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project4_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ratings_null%&gt;%
   get_p_value(obs_stat=7.57-6.93,direction=&quot;both&quot;)</code></pre>
 <pre><code>## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1   0.014</code></pre>
+## 1    0.02</code></pre>
 <p>In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
 ```</p>

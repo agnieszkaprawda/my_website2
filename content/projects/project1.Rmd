@@ -8,7 +8,7 @@ draft: false
 image: pic10.jpg
 keywords: ""
 slug: project1
-title: Omega Group plc- Pay Discrimination
+title: "Omega Group plc- Pay Discrimination" 
 ---
 
 

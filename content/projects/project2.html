@@ -1,15 +1,14 @@
 ---
+categories:
+- ""
+- ""
+date: "2017-10-31T21:28:43-05:00"
+description: ""
+draft: false
+image: pic10.jpg
+keywords: ""
+slug: project1
 title: "General Social Survey (GSS)"
-author: "LBS, MAM, Porject Group 6"
-date: "2020-09-19"
-output:
-  html_document:
-    theme: flatly
-    highlight: zenburn
-    number_sections: yes
-    toc: yes
-    toc_float: yes
-    code_folding: show
 ---
 
 
@@ -3187,7 +3186,7 @@ email_gss</code></pre>
   labs(title=&quot;Most Employees spend over 100 Minutes on Emails a Week!&quot;,
        y=&quot;Email Minutes&quot;
        )</code></pre>
-<p><img src="/projects/project2/project2_files/figure-html/unnamed-chunk-9-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/project2_files/figure-html/unnamed-chunk-9-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>Using the <code>infer</code> package, we will calculate a 95% bootstrap confidence interval for the mean amount of time Americans spend on email weekly. Then, we will interpret this interval in context of the data, reporting its endpoints in “humanized” units (e.g. instead of 108 minutes, report 1 hr and 8 minutes).</p>
 <pre class="r"><code>bootstrap_email_ci &lt;- email_gss%&gt;%
   #select(email)%&gt;%
@@ -3204,7 +3203,7 @@ bootstrap_email_ci</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   lower_ci upper_ci
 ##   &lt;times&gt;  &lt;times&gt; 
-## 1 06:18:18 07:38:05</code></pre>
+## 1 06:19:10 07:33:34</code></pre>
 <p>Now we will build a 99% Confidence Interval. We are sure it will be broader than the 95% interval as with the bigger probability the range of values we onclude in our interval goes broader.</p>
 <pre class="r"><code>#wider since as CI approaches 100% SE approaches infinity, heres a sanity check
 
@@ -3226,5 +3225,5 @@ bootstrap_email_ci_check</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   lower_ci upper_ci
 ##   &lt;times&gt;  &lt;times&gt; 
-## 1 06:14:52 07:40:45</code></pre>
+## 1 06:10:29 07:44:00</code></pre>
 </div>
