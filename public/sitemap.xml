@@ -3,17 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects/project3/</loc>
-    <lastmod>2020-09-19T00:00:00+00:00</lastmod>
+    <loc>/blogs/blog5/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-09-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/blog5/</loc>
     <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,7 +38,12 @@
   </url>
   
   <url>
-    <loc>/projects/project1/</loc>
+    <loc>/projects/project3/</loc>
+    <lastmod>2017-10-31T21:28:43-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/projects/project2/</loc>
     <lastmod>2017-10-31T21:28:43-05:00</lastmod>
   </url>
   

@@ -6,21 +6,10 @@
     <description>Recent content on Portfolio website for Agnieszka Prawda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Climate change and temperature anomalies </title>
-      <link>/projects/project3/</link>
-      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project3/</guid>
-      <description>If we wanted to study climate change, we can find data on the Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies in the Northern Hemisphere at NASA’s Goddard Institute for Space Studies. The tabular data of temperature anomalies can be found here
-To define temperature anomalies we need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.
-We will now load the file.</description>
-    </item>
     
     <item>
       <title>Mask Acceptance</title>
@@ -60,11 +49,22 @@ We will now load the file.</description>
     </item>
     
     <item>
-      <title>General Social Survey (GSS)</title>
-      <link>/projects/project1/</link>
+      <title>Climate change and temperature anomalies </title>
+      <link>/projects/project3/</link>
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       
-      <guid>/projects/project1/</guid>
+      <guid>/projects/project3/</guid>
+      <description>If we wanted to study climate change, we can find data on the Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies in the Northern Hemisphere at NASA’s Goddard Institute for Space Studies. The tabular data of temperature anomalies can be found here
+To define temperature anomalies we need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.
+We will now load the file.</description>
+    </item>
+    
+    <item>
+      <title>General Social Survey (GSS)</title>
+      <link>/projects/project2/</link>
+      <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
+      
+      <guid>/projects/project2/</guid>
       <description>The General Social Survey (GSS) gathers data on American society in order to monitor and explain trends in attitudes, behaviours, and attributes. Many trends have been tracked for decades, so one can see the evolution of attitudes, etc in American Society.
 In this assignment we analyze data from the 2016 GSS sample data, using it to estimate values of population parameters of interest about US adults. The GSS sample data file has 2867 observations of 935 variables, but we are only interested in very few of these variables and you are using a smaller file.</description>
     </item>
