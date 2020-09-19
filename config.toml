@@ -94,25 +94,25 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Omega Group plc- Pay Discrimination"
       subtitle = "Do women really eran less than men?"
-      image = "project01.jpg"
+      image = "projects/project01.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]
       title = "General Social Survey (GSS)"
      # subtitle = "Social media usage across different education levels"
-      image = "project02.jpg"
+      image = "projects/project02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
       title = "Climate change and temperature anomalies"
      # subtitle = "Plots on changes in climate"
-      image = "project03.jpg"
+      image = "projects/project03.jpg"
       url = "projects/project3"
 
     [[params.tiles.showcase]]
       title = "IMDB ratings: Differences between directors "
      # subtitle = "Analysis on movie genres"
-      image = "project04.jpg"
+      image = "projects/project04.jpg"
       url = "projects/project4"
 
  #   [[params.tiles.showcase]]
