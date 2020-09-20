@@ -7,7 +7,7 @@ description: ""
 draft: false
 keywords: ""
 slug: project4
-title: "IMDB ratings: Differences between directors "
+title: "IMDB ratings: Differences between directors"
 image: directors.png
 ---
 
