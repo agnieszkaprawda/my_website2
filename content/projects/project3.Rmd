@@ -7,7 +7,7 @@ description: ""
 draft: false
 keywords: ""
 slug: project3
-title: "Climate change and temperature anomalies "
+title: "Climate change and temperature anomalies"
 image: project03.jpg
 ---
 
