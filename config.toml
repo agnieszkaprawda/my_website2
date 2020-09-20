@@ -99,19 +99,19 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "General Social Survey (GSS)"
-     # subtitle = "Social media usage across different education levels"
+      subtitle = "Social media usage across different education levels"
       image = "projects/project02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
       title = "Climate change and temperature anomalies"
-     # subtitle = "Plots on changes in climate"
+      subtitle = "Plots on changes in climate"
       image = "projects/project03.jpg"
       url = "projects/project3"
 
     [[params.tiles.showcase]]
       title = "IMDB ratings: Differences between directors "
-     # subtitle = "Analysis on movie genres"
+     subtitle = "Analysis on movie genres"
       image = "projects/project04.jpg"
       url = "projects/project4"
 
