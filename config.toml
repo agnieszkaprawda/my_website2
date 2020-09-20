@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Agnieszka Prawda"
+    title = "My Portfolio website"
     subtitle = "You can call me Aga :)"
     menu = "Menu"
     # Optional logo as brand stored in img/
