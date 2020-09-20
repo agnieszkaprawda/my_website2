@@ -43,23 +43,23 @@ library(chron)
 ```
 
 
-Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it. 
+Recall the IMDB ratings data. We would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and we would like to replicate it. 
 
-You can load the data and examine its structure
+We will load the data and examine its structure
 
 ```{r load-movies-data}
 movies <- read_csv(here::here("data", "movies.csv"))
 glimpse(movies)
 ```
 
-
+Now we will create the data frame fileted for the 2 directors we are interested in, including summary statistics resulting in confidence interval at 95%. Thereafter, we will plot our data and try to replicate the image above. 
 ```{r fig.height=4, fig.width=7}
-# Create data frame filtered for the two directors we are interested in, including summary statistics resulting in confidence interval at 95%
+
 data201<-movies%>%
-  filter(director=="Tim Burton"|director=="Steven Spielberg")%>%
+  filter(director=="Tim Burton"|director=="Steven Spielberg")%>% #filtering for 2 directors we are interested in
   group_by(director)%>%
   summarise(mean=round(mean(rating),digits=2),
-            sd=sd(rating),
+            sd=sd(rating), #summarising the data
             se=sd/sqrt(n()),
             tcrit=qt(0.975,n()-1),
             lower_95=round(mean-tcrit*se,digits=2),
@@ -86,7 +86,8 @@ ggplot(data201,aes(x=reorder(director,mean),y=mean,ymin=lower_95,ymax=upper_95,c
 
 In addition, we will run a hypothesis test, using both the `t.test` command and the `infer` package to simulate from a null distribution, where you assume zero difference between the two. But before that, we would like to calculate by-hand the t-stat as a reference.
 
-H0: mean_steven=mean_tim, H1: mean_steven!=mean_tim
+H0: mean_steven=mean_tim, 
+H1: mean_steven!=mean_tim
 
 Our desired test statistic is the quantity (mean_steven-mean_tim).
 
@@ -119,4 +120,9 @@ ratings_null%>%
 ```
 
 In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
+
+
+# Details
+
+Authors: Magdalena Cloppenburg, Yichun Hou, Derek Leung, Malay Memani, Samy Mohamad, Agnieszka Prawda.
 ```

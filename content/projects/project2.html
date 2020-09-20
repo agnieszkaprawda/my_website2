@@ -30,8 +30,10 @@ image: project02.jpg
 </ul>
 <div id="instagram-and-snapchat-by-sex" class="section level2">
 <h2>Instagram and Snapchat, by sex</h2>
-<p>In the first part of the proejct, we will try to answer the follwijg quesiton:</p>
+<p>In the first part of the project, we will try to answer the following quesiton:</p>
+<blockquote>
 <p>Can we estimate the <em>population</em> proportion of Snapchat or Instagram users in 2016?</p>
+</blockquote>
 <p>We will create a new variable, <code>snap_insta</code> that is <em>Yes</em> if the respondent reported using any of Snapchat (<code>snapchat</code>) or Instagram (<code>instagrm</code>), and <em>No</em> if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.</p>
 <pre class="r"><code>gss_snapinsta&lt;-gss%&gt;%
   mutate(snap_insta= case_when(
@@ -102,11 +104,14 @@ sicimen  </code></pre>
 ##                      &lt;dbl&gt;
 ## 1                    0.281
 ## 2                    0.356</code></pre>
+<p>From our analysis we estimated the population proportion using Snapchat or Instagram amounting to 37,5%. We then calculated the proportion separately for male(31,8%) and female (41,9%). We can see that the Confidence Intervals do not overlap, therefore we can conclude that the proportion of female using Snapchat or Instagram is significantly different to the proportion of male using these apps.</p>
 </div>
 <div id="twitter-by-education-level" class="section level2">
 <h2>Twitter, by education level</h2>
-<p>In this part we will concentrate on another quesiton:
-Can we estimate the <em>population</em> proportion of Twitter users by education level in 2016?.</p>
+<p>In this part we will concentrate on another quesiton:</p>
+<blockquote>
+<p>Can we estimate the <em>population</em> proportion of Twitter users by education level in 2016?.</p>
+</blockquote>
 <p>There are 5 education levels in variable <code>degree</code> which, in ascending order of years of education, are Lt high school, High School, Junior college, Bachelor, Graduate.</p>
 <p>We will turn <code>degree</code> from a character variable into a factor variable. We will make sure the order is the correct one and that levels are not sorted alphabetically which is what R by default does.</p>
 <pre class="r"><code>factor_degree&lt;- gss %&gt;% 
@@ -159,12 +164,14 @@ sicitwitter_no  </code></pre>
 ##                            &lt;dbl&gt;
 ## 1                          0.729
 ## 2                          0.804</code></pre>
-<p>The two Confidence Intervals do not overlap. Hence, we can reject the hypothesis that the difference in proprotions between Bachelor graduates who use twitter vs who do not use it is insignificant.</p>
+<p>The two Confidence Intervals do not overlap. Hence, we can reject the hypothesis that the difference in proportions between Bachelor graduates who use twitter vs who do not use it is insignificant.</p>
 </div>
 <div id="email-usage" class="section level2">
 <h2>Email usage</h2>
-<p>Time for another quesiton to be answred:
-Can we estimate the <em>population</em> parameter on time spent on email weekly?</p>
+<p>Time for another quesiton to be answered:</p>
+<blockquote>
+<p>Can we estimate the <em>population</em> parameter on time spent on email weekly?</p>
+</blockquote>
 <p>First, we will create a new variable called <code>email</code> that combines <code>emailhr</code> and <code>emailmin</code> to reports the number of minutes the respondents spend on email weekly.</p>
 <pre class="r"><code>glimpse(gss)</code></pre>
 <pre><code>## Rows: 2,867
@@ -525,4 +532,9 @@ bootstrap_email_ci_check</code></pre>
 ##   lower_ci upper_ci
 ##   &lt;times&gt;  &lt;times&gt; 
 ## 1 06:10:29 07:44:00</code></pre>
+<p>Thank you so much for reading and we hope that for a useful analysis for you!</p>
+</div>
+<div id="details" class="section level1">
+<h1>Details</h1>
+<p>Authors: Magdalena Cloppenburg, Yichun Hou, Derek Leung, Malay Memani, Samy Mohamad, Agnieszka Prawda.</p>
 </div>

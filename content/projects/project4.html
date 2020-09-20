@@ -13,8 +13,8 @@ image: directors.png
 
 
 
-<p>Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it.</p>
-<p>You can load the data and examine its structure</p>
+<p>Recall the IMDB ratings data. We would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and we would like to replicate it.</p>
+<p>We will load the data and examine its structure</p>
 <pre class="r"><code>movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
 glimpse(movies)</code></pre>
 <pre><code>## Rows: 2,961
@@ -30,12 +30,12 @@ glimpse(movies)</code></pre>
 ## $ votes               &lt;dbl&gt; 886204, 793059, 418214, 995415, 1676169, 534658, …
 ## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752, 3…
 ## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7.2,…</code></pre>
-<pre class="r"><code># Create data frame filtered for the two directors we are interested in, including summary statistics resulting in confidence interval at 95%
-data201&lt;-movies%&gt;%
-  filter(director==&quot;Tim Burton&quot;|director==&quot;Steven Spielberg&quot;)%&gt;%
+<p>Now we will create the data frame fileted for the 2 directors we are interested in, including summary statistics resulting in confidence interval at 95%. Thereafter, we will plot our data and try to replicate the image above.</p>
+<pre class="r"><code>data201&lt;-movies%&gt;%
+  filter(director==&quot;Tim Burton&quot;|director==&quot;Steven Spielberg&quot;)%&gt;% #filtering for 2 directors we are interested in
   group_by(director)%&gt;%
   summarise(mean=round(mean(rating),digits=2),
-            sd=sd(rating),
+            sd=sd(rating), #summarising the data
             se=sd/sqrt(n()),
             tcrit=qt(0.975,n()-1),
             lower_95=round(mean-tcrit*se,digits=2),
@@ -60,7 +60,8 @@ ggplot(data201,aes(x=reorder(director,mean),y=mean,ymin=lower_95,ymax=upper_95,c
   geom_text(aes(label=upper_95,y=upper_95),show.legend=FALSE,vjust=-2,size=5,face=&quot;bold&quot;,color=&quot;black&quot;)</code></pre>
 <p><img src="/projects/project4_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In addition, we will run a hypothesis test, using both the <code>t.test</code> command and the <code>infer</code> package to simulate from a null distribution, where you assume zero difference between the two. But before that, we would like to calculate by-hand the t-stat as a reference.</p>
-<p>H0: mean_steven=mean_tim, H1: mean_steven!=mean_tim</p>
+<p>H0: mean_steven=mean_tim,
+H1: mean_steven!=mean_tim</p>
 <p>Our desired test statistic is the quantity (mean_steven-mean_tim).</p>
 <p>t-stat=(7.57-6.93)/sqrt(0.145<sup>2+0.187</sup>2)=2.7</p>
 <p>(Note 0.145 and 0.187 are approximates of standard errors of Tim Burton and Steven Spielberg’s ratings respectively, taken from data201)</p>
@@ -98,6 +99,10 @@ ratings_null%&gt;%
 <pre><code>## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1   0.016</code></pre>
-<p>In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.
+## 1       0</code></pre>
+<p>In both cases, since p-value is smaller than 0.05, we will reject the null hypothesis and accept the explanation that the reason between the difference of sample mean of ratings of Steven Spielberg and Tim Burton is not due to sheer luck but some other factors.</p>
+<div id="details" class="section level1">
+<h1>Details</h1>
+<p>Authors: Magdalena Cloppenburg, Yichun Hou, Derek Leung, Malay Memani, Samy Mohamad, Agnieszka Prawda.
 ```</p>
+</div>

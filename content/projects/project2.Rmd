@@ -68,9 +68,9 @@ We will be creating 95% confidence intervals for population parameters. The vari
 
 ## Instagram and Snapchat, by sex
 
-In the first part of the proejct, we will try to answer the follwijg quesiton:
+In the first part of the project, we will try to answer the following quesiton:
 
-Can we estimate the *population* proportion of Snapchat or Instagram users in 2016?
+>Can we estimate the *population* proportion of Snapchat or Instagram users in 2016?
 
 We will create a  new variable, `snap_insta` that is *Yes* if the respondent reported using any of Snapchat (`snapchat`) or Instagram (`instagrm`), and *No* if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.
 ```{r}
@@ -124,10 +124,13 @@ sicimen
 
 ```
 
+From our analysis we estimated the population proportion using Snapchat or Instagram amounting to 37,5%. We then calculated the proportion separately for male(31,8%) and female (41,9%). We can see that the Confidence Intervals do not overlap, therefore we can conclude that the proportion of female using Snapchat or Instagram is significantly different to the proportion of male using these apps.
+
 ## Twitter, by education level
 
 In this part we will concentrate on another quesiton:
-Can we estimate the *population* proportion of Twitter users by education level in 2016?. 
+
+>Can we estimate the *population* proportion of Twitter users by education level in 2016?. 
 
 There are 5 education levels in variable `degree` which, in ascending order of years of education, are Lt high school, High School, Junior college, Bachelor, Graduate. 
 
@@ -186,12 +189,13 @@ sicitwitter_no
 
 ```
 
-The two Confidence Intervals do not overlap. Hence, we can reject the hypothesis that the difference in proprotions between Bachelor graduates who use twitter vs who do not use it is insignificant.
+The two Confidence Intervals do not overlap. Hence, we can reject the hypothesis that the difference in proportions between Bachelor graduates who use twitter vs who do not use it is insignificant.
 
 ## Email usage
 
-Time for another quesiton to be answred:
-Can we estimate the *population* parameter on time spent on email weekly?
+Time for another quesiton to be answered:
+
+>Can we estimate the *population* parameter on time spent on email weekly?
 
 First, we will create a new variable called `email` that combines `emailhr` and `emailmin` to reports the number of minutes the respondents spend on email weekly.
 ```{r}
@@ -261,3 +265,8 @@ bootstrap_email_ci_check
 
 ```
 
+Thank you so much for reading and we hope that for a useful analysis for you! 
+
+# Details
+
+Authors: Magdalena Cloppenburg, Yichun Hou, Derek Leung, Malay Memani, Samy Mohamad, Agnieszka Prawda.

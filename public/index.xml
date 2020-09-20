@@ -76,8 +76,8 @@ In this assignment we analyze data from the 2016 GSS sample data, using it to es
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       
       <guid>/projects/project4/</guid>
-      <description>Recall the IMDB ratings data. I would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and I would like to replicate it.
-You can load the data and examine its structure
+      <description>Recall the IMDB ratings data. We would like to explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. Below is a plot that our instructor made, and we would like to replicate it.
+We will load the data and examine its structure
 movies &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;movies.csv&amp;quot;)) glimpse(movies) ## Rows: 2,961 ## Columns: 11 ## $ title &amp;lt;chr&amp;gt; &amp;quot;Avatar&amp;quot;, &amp;quot;Titanic&amp;quot;, &amp;quot;Jurassic World&amp;quot;, &amp;quot;The Aveng… ## $ genre &amp;lt;chr&amp;gt; &amp;quot;Action&amp;quot;, &amp;quot;Drama&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, … ## $ director &amp;lt;chr&amp;gt; &amp;quot;James Cameron&amp;quot;, &amp;quot;James Cameron&amp;quot;, &amp;quot;Colin Trevorro… ## $ year &amp;lt;dbl&amp;gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015, 2… ## $ duration &amp;lt;dbl&amp;gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93, … ## $ gross &amp;lt;dbl&amp;gt; 7.</description>
     </item>
     
