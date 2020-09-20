@@ -44,7 +44,7 @@ library(chron)
 ```
 
 
-If we wanted to study climate change, we can find data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere at [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt)
+In this project we used data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere from [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt)
 
 To define temperature anomalies we need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.
 
@@ -112,7 +112,8 @@ ggplot(tidyweather, aes(x=date, y = delta))+
 ```
 
 In the next step, we will try to answer the following question: 
-Is the effect of increasing temperature more pronounced in some months? 
+
+>Is the effect of increasing temperature more pronounced in some months? 
 
 For that we will use `facet_wrap()` to produce a seperate scatter plot for each month, again with a smoothing line. 
 
@@ -158,11 +159,11 @@ comparison <- tidyweather %>%
     TRUE ~ "2011-present"
   ))
 
+comparison
+
 ```
 
-Inspect the `comparison` dataframe by clicking on it in the `Environment` pane.
-
-Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in. Set `fill` to `interval` to group and colour the data by different time periods.
+Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in. We will set `fill` to `interval` to group and colour the data by different time periods.
 
 ```{r density_plot}
 
@@ -170,13 +171,16 @@ ggplot(comparison, aes(x=delta, fill=interval))+
   geom_density(alpha=0.2) +   #density plot with tranparency set to 20%
   theme_bw() +                #theme
   labs (
-    title = "Density Plot for Monthly Temperature Anomalies",
+    title = "Throught the periods, the monthly temperaute deviation has raised.",
+    subtitle= "Density Plot for Monthly Temperature Anomalies",
     y     = "Density"         #changing y-axis label to sentence case
   )
 
 ```
+From the graph we can clearly see that the monthly anomalies have raised through time. 
 
-So far, we have been working with monthly anomalies. However, we might be interested in average annual anomalies. We can do this by using `group_by()` and `summarise()`, followed by a scatter plot to display the result. 
+
+So far, we have been working with monthly anomalies. However, we are also interested in average annual anomalies. We can do this by using `group_by()` and `summarise()`, followed by a scatter plot to display the result. 
 
 ```{r averaging}
 
@@ -255,7 +259,5 @@ comparison
 bootstrap_ci
   
 ```
-
-> What is the data showing us? Please type your answer after (and outside!) this blockquote. You have to explain what you have done, and the interpretation of the result. One paragraph max, please!
 
 We first cleansed dataframe `weather` and converted it into long form (`tidyweather`). To increase relevance of analysis, we next removed all entries prior to 1880 and classified all the remaining rows into different year bundles ('comparison'). We then try to capture the average annual delta (with 95% confidence) by building a 95% confidence interval through two methods: by formula and by bootstrapping. From the CIs we obtain, we can say we are 95% confident that the true mean lies in proximity of our confidence intervals. Note however, for practical purposes the bootstrapping one would be more useful when predicting long term and general behaviour since it is narrower.
