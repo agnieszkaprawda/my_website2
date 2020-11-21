@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "My Portfolio website"
-    subtitle = "Welcome! :)"
+    subtitle = "Welcome"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Agnieszka"
-    subtitle = "You can call me Aga :)"
+    subtitle = "Welcome to my portfolio website"
     buttonText = "Get Started"
 
 
@@ -98,8 +98,8 @@ disqusShortname = ""
       url = "projects/project1"
 
     [[params.tiles.showcase]]
-      title = "General Social Survey (GSS)"
-      subtitle = "Social media usage across different education levels"
+      title = "Predicting interest rates at the Lending Club"
+      subtitle = "Linear & LASSO regresison, feature engineering, machine learning and k-fold cross vaidaiton"
       image = "projects/project02.jpg"
       url = "projects/project2"
 
