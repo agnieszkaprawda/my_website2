@@ -100,7 +100,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Predicting interest rates at the Lending Club"
       subtitle = "Linear & LASSO regresison, feature engineering, machine learning and k-fold cross vaidaiton"
-      image = "projects/project02.png"
+      image = "projects/project02.jpg"
       url = "projects/project2"
 
     [[params.tiles.showcase]]
