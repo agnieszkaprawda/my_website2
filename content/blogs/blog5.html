@@ -54,44 +54,44 @@ glimpse(nyt_mask_survey)</code></pre>
 # The id field is the FIPS code for the county
 county_map %&gt;% 
   sample_n(5)</code></pre>
-<pre><code>##       long      lat  order  hole piece            group    id
-## 1   764628 -1489037  70970 FALSE     1 0500000US22025.1 22025
-## 2   816817 -1238586  19467 FALSE     1 0500000US05017.1 05017
-## 3 -1340286   337005 177790 FALSE     1 0500000US53023.1 53023
-## 4  1547365  -772142 154403 FALSE     1 0500000US47163.1 47163
-## 5  1301837  -118000  90473 FALSE     1 0500000US26155.1 26155</code></pre>
+<pre><code>##      long     lat  order  hole piece            group    id
+## 1 1981773 -831309 126681 FALSE     1 0500000US37191.1 37191
+## 2  876022  171963  87787 FALSE     1 0500000US26071.1 26071
+## 3 1439925 -945594 153219 FALSE     1 0500000US47123.1 47123
+## 4 1480534 -726037  66834 FALSE     1 0500000US21131.1 21131
+## 5 1542302 -840452 151373 FALSE     1 0500000US47059.1 47059</code></pre>
 <pre class="r"><code>county_data %&gt;%
     sample_n(5)</code></pre>
-<pre><code>##      id               name state census_region      pop_dens   pop_dens4
-## 1 41071     Yamhill County    OR          West [  100,  500) [118,71672]
-## 2 20131      Nemaha County    KS       Midwest [   10,   50) [  0,   17)
-## 3 02195 Petersburg Borough    AK          West [    0,   10) [  0,   17)
-## 4 18071     Jackson County    IN       Midwest [   50,  100) [ 45,  118)
-## 5 06043    Mariposa County    CA          West [   10,   50) [  0,   17)
+<pre><code>##      id                name state census_region      pop_dens   pop_dens4
+## 1 50011     Franklin County    VT     Northeast [   50,  100) [ 45,  118)
+## 2 12081      Manatee County    FL         South [  100,  500) [118,71672]
+## 3 51810 Virginia Beach city    VA         South [ 1000, 5000) [118,71672]
+## 4 13123       Gilmer County    GA         South [   50,  100) [ 45,  118)
+## 5 48387    Red River County    TX         South [   10,   50) [  0,   17)
 ##     pop_dens6   pct_black    pop female white black travel_time land_area
-## 1 [ 82,  215) [ 0.0, 2.0) 101758   50.1  92.1   1.0        23.4       716
-## 2 [  9,   25) [ 0.0, 2.0)  10148   49.7  96.9   0.7        13.9       717
-## 3 [  0,    9) [ 0.0, 2.0)   3160   48.2  71.5   0.7         7.7      3282
-## 4 [ 82,  215) [ 0.0, 2.0)  43705   50.2  96.0   1.0        20.3       509
-## 5 [  9,   25) [ 0.0, 2.0)  17682   49.2  90.2   1.1        32.0      1449
+## 1 [ 45,   82) [ 0.0, 2.0)  48642   50.4  95.6   0.6        27.1       634
+## 2 [215,71672] [ 5.0,10.0) 351746   51.6  86.5   9.3        23.9       743
+## 3 [215,71672] [15.0,25.0) 450980   50.9  68.9  20.0        22.9       249
+## 4 [ 45,   82) [ 0.0, 2.0)  28829   49.7  96.4   0.9        27.9       427
+## 5 [  9,   25) [15.0,25.0)  12446   51.7  79.2  17.4        26.6      1037
 ##   hh_income su_gun4 su_gun6  fips votes_dem_2016 votes_gop_2016
-## 1     54535 [ 5, 8) [ 7, 8) 41071          18635          22589
-## 2     47122 [11,54] [12,54] 20131            714           4066
-## 3     63934 [ 0, 5) [ 0, 4)  2195          93003         130413
-## 4     46501 [ 0, 5) [ 4, 7) 18071           3843          12857
-## 5     49820 [11,54] [12,54]  6043           3122           5185
+## 1     56240 [ 8,11) [ 8,10) 50011           9351           8752
+## 2     47876 [ 5, 8) [ 7, 8) 12081          71066         101681
+## 3     65219 [ 5, 8) [ 4, 7) 51810          76744          84389
+## 4     39140 [11,54] [12,54] 13123           1955          10465
+## 5     31712 [11,54] [12,54] 48387           1148           3924
 ##   total_votes_2016 per_dem_2016 per_gop_2016 diff_2016 per_dem_2012
-## 1            45116        0.413        0.501      3954        0.453
-## 2             5025        0.142        0.809      3352        0.199
-## 3           246588        0.377        0.529     37410           NA
-## 4            17532        0.219        0.733      9014        0.349
-## 5             8877        0.352        0.584      2063        0.395
-##   per_gop_2012 diff_2012 winner partywinner16 winner12 partywinner12 flipped
-## 1        0.520      2805  Trump    Republican   Romney    Republican      No
-## 2        0.782      2890  Trump    Republican   Romney    Republican      No
-## 3           NA        NA  Trump    Republican   Romney    Republican      No
-## 4        0.624      4581  Trump    Republican   Romney    Republican      No
-## 5        0.568      1354  Trump    Republican   Romney    Republican      No</code></pre>
+## 1            19373        0.483        0.452       599        0.610
+## 2           178521        0.398        0.570     30615        0.433
+## 3           171876        0.447        0.491      7645        0.481
+## 4            12713        0.154        0.823      8510        0.178
+## 5             5147        0.223        0.762      2776        0.292
+##   per_gop_2012 diff_2012  winner partywinner16 winner12 partywinner12 flipped
+## 1        0.375      4652 Clinton      Democrat    Obama      Democrat      No
+## 2        0.558     19140   Trump    Republican   Romney    Republican      No
+## 3        0.506      4944   Trump    Republican   Romney    Republican      No
+## 4        0.810      6965   Trump    Republican   Romney    Republican      No
+## 5        0.699      2067   Trump    Republican   Romney    Republican      No</code></pre>
 <pre class="r"><code>glimpse(county_data)</code></pre>
 <pre><code>## Rows: 3,195
 ## Columns: 32
