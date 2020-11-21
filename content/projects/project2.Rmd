@@ -1,6 +1,5 @@
 ---
-title: "Data Science I, Workshop I: Predicting interest rates at the Lending Club"
-author: "Group 6"
+title: "Predicting interest rates at the Lending Club"
 date: "5/10/2020"
 output:
   html_document:
@@ -35,9 +34,7 @@ library(zoo) #to allow for timeseries operations
 ```
 
 
-This workshop partially replicates the analysis presented in class (lectures 1 and 2) and builds on it. You are to work in your study group. Feel free to refer to the "Lending_Club_Session1_and_2.html" if you get stuck.
-
-The workshop consists of 10 questions plus an optional question. Submit one report per group.  *Please write your answers after each question and submit a knitted RMD markup file via canvas within 6 days after the end of this workshop.* Please keep your answers concise -- focus on answering what you are asked and use your data science work to justify your answers. Do not focus on the process you have followed to reach the answer.
+In this piece we will analyse the data on interest rates in the Lednign Club. First we will conduct the ICE of the data together with visualisation of the variables disributions and correlations for better understanding. Then, we will first build a linear regression model
 
 
 # Load and prepare the data
